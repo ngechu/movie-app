@@ -11,15 +11,15 @@ import { HeaderComponent } from './components/header/header.component';
 import { CardComponent } from './components/card/card.component';
 // search module
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
-import { ViewCardDetailsComponent } from './components/card/view-card-details/view-card-details.component';
+import { ViewCardDetailsComponent } from './components/view-card-details/view-card-details.component';
+import { SearchInputComponent } from './components/search-input/search-input.component';
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     CardComponent,
     ViewCardDetailsComponent,
-
-
+    SearchInputComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,10 +31,10 @@ import { ViewCardDetailsComponent } from './components/card/view-card-details/vi
       enabled: environment.production,
       // Register the ServiceWorker as soon as the app is stable
       // or after 30 seconds (whichever comes first).
-      registrationStrategy: 'registerWhenStable:30000'
-    })
+      registrationStrategy: 'registerWhenStable:30000',
+    }),
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
