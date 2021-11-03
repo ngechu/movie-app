@@ -1,221 +1,182 @@
 <div>
   <!-- Search field -->
   <div>
-    <label class="hidden" for="search-form">Search All</label>
-    <input
-      class="
-        bg-grey-lightest
-        border-2
-        focus:border-orange
-        p-2
-        rounded-lg
-        shadow-inner
-        w-full
-        mb-4
-        mx-4
-        w-full
-        md:mb-0 md:w-1/4
-      "
-      placeholder="Search"
-      type="text"
-      [(ngModel)]="searchText"
-    />
-  </div>
-  <div>
-    <label class="hidden" for="search-form">Search One</label>
-    <input
-      class="
-        bg-grey-lightest
-        border-2
-        focus:border-orange
-        p-2
-        rounded-lg
-        shadow-inner
-        w-full
-        mb-4
-        mx-4
-        w-full
-        md:mb-0 md:w-1/4
-      "
-      placeholder="Search"
-      type="text"
-      [(ngModel)]="searchText"
-    />
-  </div>
+    <app-search-input></app-search-input>
 
-  <div>
-    <div class="p-4">
-      <p class="text-xl py-4">Coming Soon</p>
-      <div
-        id="scrollContainer"
-        class="
-          flex flex-no-wrap
-          overflow-x-scroll
-          scrolling-touch
-          items-start
-          mb-8
-        "
-      >
+    <div>
+      <div class="p-4">
+        <p class="text-xl py-4">Coming Soon</p>
         <div
-          class="flex-none w-2/3 md:w-1/3 mr-8 md:pb-4 rounded-lg"
-          *ngFor="let details of comingSoonMovies"
+          id="scrollContainer"
+          class="
+            flex flex-no-wrap
+            overflow-x-scroll
+            scrolling-touch
+            items-start
+            mb-8
+          "
         >
-          <a href="#" class="space-y-4">
-            <div class="aspect-w-16 aspect-h-9">
-              <img
-                class="object-cover shadow-md hover:shadow-xl rounded-lg"
-                src="{{ details.image }}"
-                alt=""
-              />
-            </div>
-            <div class="px-4 py-2">
-              <div class="text-md leading-6 font-medium space-y-1">
-                <h3 class="font-bold text-gray-800 text-xl mb-2">
-                  {{ details.title }}
-                </h3>
+          <div
+            class="flex-none w-2/3 md:w-1/3 mr-8 md:pb-4 rounded-lg"
+            *ngFor="let details of comingSoonMovies"
+          >
+            <a href="#" class="space-y-4">
+              <div class="aspect-w-16 aspect-h-9">
+                <img
+                  class="object-cover shadow-md hover:shadow-xl rounded-lg"
+                  src="{{ details.image }}"
+                  alt=""
+                />
               </div>
-            </div>
-          </a>
+              <div class="px-4 py-2">
+                <div class="text-md leading-6 font-medium space-y-1">
+                  <h3 class="font-bold text-gray-800 text-xl mb-2">
+                    {{ details.title }}
+                  </h3>
+                </div>
+              </div>
+            </a>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="p-4">
-      <p class="text-xl py-4">Top 250 Movies</p>
-      <div
-        id="scrollContainer"
-        class="
-          flex flex-no-wrap
-          overflow-x-scroll
-          scrolling-touch
-          items-start
-          mb-8
-        "
-      >
+      <div class="p-4">
+        <p class="text-xl py-4">Top 250 Movies</p>
         <div
-          class="flex-none w-2/3 md:w-1/3 mr-8 md:pb-4 rounded-lg"
-          *ngFor="let details of top250Movies | filter: searchText"
+          id="scrollContainer"
+          class="
+            flex flex-no-wrap
+            overflow-x-scroll
+            scrolling-touch
+            items-start
+            mb-8
+          "
         >
-          <a href="#" class="space-y-4">
-            <div class="aspect-w-16 aspect-h-9">
-              <img
-                class="object-cover shadow-md hover:shadow-xl rounded-lg"
-                src="{{ details.image }}"
-                alt=""
-              />
-            </div>
-            <div class="px-4 py-2">
-              <div class="text-md leading-6 font-medium space-y-1">
-                <h3 class="font-bold text-gray-800 text-xl mb-2">
-                  {{ details.title }}
-                </h3>
+          <div
+            class="flex-none w-2/3 md:w-1/3 mr-8 md:pb-4 rounded-lg"
+            *ngFor="let details of top250Movies"
+          >
+            <a href="#" class="space-y-4">
+              <div class="aspect-w-16 aspect-h-9">
+                <img
+                  class="object-cover shadow-md hover:shadow-xl rounded-lg"
+                  src="{{ details.image }}"
+                  alt=""
+                />
               </div>
-            </div>
-          </a>
+              <div class="px-4 py-2">
+                <div class="text-md leading-6 font-medium space-y-1">
+                  <h3 class="font-bold text-gray-800 text-xl mb-2">
+                    {{ details.title }}
+                  </h3>
+                </div>
+              </div>
+            </a>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="p-4">
-      <p class="text-xl py-4">Most Popular Movies</p>
-      <div
-        id="scrollContainer"
-        class="
-          flex flex-no-wrap
-          overflow-x-scroll
-          scrolling-touch
-          items-start
-          mb-8
-        "
-      >
+      <div class="p-4">
+        <p class="text-xl py-4">Most Popular Movies</p>
         <div
-          class="flex-none w-2/3 md:w-1/3 mr-8 md:pb-4 rounded-lg"
-          *ngFor="let details of popularMovies | filter: searchText"
+          id="scrollContainer"
+          class="
+            flex flex-no-wrap
+            overflow-x-scroll
+            scrolling-touch
+            items-start
+            mb-8
+          "
         >
-          <a href="#" class="space-y-4">
-            <div class="aspect-w-16 aspect-h-9">
-              <img
-                class="object-cover shadow-md hover:shadow-xl rounded-lg"
-                src="{{ details.image }}"
-                alt=""
-              />
-            </div>
-            <div class="px-4 py-2">
-              <div class="text-md leading-6 font-medium space-y-1">
-                <h3 class="font-bold text-gray-800 text-xl mb-2">
-                  {{ details.title }}
-                </h3>
+          <div
+            class="flex-none w-2/3 md:w-1/3 mr-8 md:pb-4 rounded-lg"
+            *ngFor="let details of popularMovies"
+          >
+            <a href="#" class="space-y-4">
+              <div class="aspect-w-16 aspect-h-9">
+                <img
+                  class="object-cover shadow-md hover:shadow-xl rounded-lg"
+                  src="{{ details.image }}"
+                  alt=""
+                />
               </div>
-            </div>
-          </a>
+              <div class="px-4 py-2">
+                <div class="text-md leading-6 font-medium space-y-1">
+                  <h3 class="font-bold text-gray-800 text-xl mb-2">
+                    {{ details.title }}
+                  </h3>
+                </div>
+              </div>
+            </a>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="p-4">
-      <p class="text-xl py-4">Most Popular Tv Shows</p>
-      <div
-        id="scrollContainer"
-        class="
-          flex flex-no-wrap
-          overflow-x-scroll
-          scrolling-touch
-          items-start
-          mb-8
-        "
-      >
+      <div class="p-4">
+        <p class="text-xl py-4">Most Popular Tv Shows</p>
         <div
-          class="flex-none w-2/3 md:w-1/3 mr-8 md:pb-4 rounded-lg"
-          *ngFor="let details of popularTvShows | filter: searchText"
+          id="scrollContainer"
+          class="
+            flex flex-no-wrap
+            overflow-x-scroll
+            scrolling-touch
+            items-start
+            mb-8
+          "
         >
-          <a href="#" class="space-y-4">
-            <div class="aspect-w-16 aspect-h-9">
-              <img
-                class="object-cover shadow-md hover:shadow-xl rounded-lg"
-                src="{{ details.image }}"
-                alt=""
-              />
-            </div>
-            <div class="px-4 py-2">
-              <div class="text-md leading-6 font-medium space-y-1">
-                <h3 class="font-bold text-gray-800 text-xl mb-2">
-                  {{ details.title }}
-                </h3>
+          <div
+            class="flex-none w-2/3 md:w-1/3 mr-8 md:pb-4 rounded-lg"
+            *ngFor="let details of popularTvShows"
+          >
+            <a href="#" class="space-y-4">
+              <div class="aspect-w-16 aspect-h-9">
+                <img
+                  class="object-cover shadow-md hover:shadow-xl rounded-lg"
+                  src="{{ details.image }}"
+                  alt=""
+                />
               </div>
-            </div>
-          </a>
+              <div class="px-4 py-2">
+                <div class="text-md leading-6 font-medium space-y-1">
+                  <h3 class="font-bold text-gray-800 text-xl mb-2">
+                    {{ details.title }}
+                  </h3>
+                </div>
+              </div>
+            </a>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="p-4">
-      <p class="text-xl py-4">In Theaters Now!</p>
-      <div
-        id="scrollContainer"
-        class="
-          flex flex-no-wrap
-          overflow-x-scroll
-          scrolling-touch
-          items-start
-          mb-8
-        "
-      >
+      <div class="p-4">
+        <p class="text-xl py-4">In Theaters Now!</p>
         <div
-          class="flex-none w-2/3 md:w-1/3 mr-8 md:pb-4 rounded-lg"
-          *ngFor="let details of inTheatersMovies | filter: searchText"
+          id="scrollContainer"
+          class="
+            flex flex-no-wrap
+            overflow-x-scroll
+            scrolling-touch
+            items-start
+            mb-8
+          "
         >
-          <a href="#" class="space-y-4">
-            <div class="aspect-w-16 aspect-h-9">
-              <img
-                class="object-cover shadow-md hover:shadow-xl rounded-lg"
-                src="{{ details.image }}"
-                alt=""
-              />
-            </div>
-            <div class="px-4 py-2">
-              <div class="text-md leading-6 font-medium space-y-1">
-                <h3 class="font-bold text-gray-800 text-xl mb-2">
-                  {{ details.title }}
-                </h3>
+          <div
+            class="flex-none w-2/3 md:w-1/3 mr-8 md:pb-4 rounded-lg"
+            *ngFor="let details of inTheatersMovies"
+          >
+            <a href="#" class="space-y-4">
+              <div class="aspect-w-16 aspect-h-9">
+                <img
+                  class="object-cover shadow-md hover:shadow-xl rounded-lg"
+                  src="{{ details.image }}"
+                  alt=""
+                />
               </div>
-            </div>
-          </a>
+              <div class="px-4 py-2">
+                <div class="text-md leading-6 font-medium space-y-1">
+                  <h3 class="font-bold text-gray-800 text-xl mb-2">
+                    {{ details.title }}
+                  </h3>
+                </div>
+              </div>
+            </a>
+          </div>
         </div>
       </div>
     </div>
