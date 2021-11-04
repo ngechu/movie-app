@@ -13,8 +13,8 @@ import { CardApiService } from '../../services/card-api.service';
 })
 export class SearchInputComponent implements OnInit, OnDestroy {
   movies!: Movie[];
-  private searchTerms = new Subject<string>();
-  subscription1: Subscription = new Subscription();
+  searchTerms = new Subject<string>();
+  subscription: Subscription = new Subscription();
 
   constructor(private cardApiService: CardApiService, private router: Router) {}
 
@@ -24,7 +24,7 @@ export class SearchInputComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.subscription1 = this.searchTerms
+    this.searchTerms
       .pipe(
         // wait 300ms after each keystroke before considering the term
         debounceTime(300),
@@ -44,6 +44,8 @@ export class SearchInputComponent implements OnInit, OnDestroy {
     this.router.navigate([`view/${id}`]);
   }
   ngOnDestroy(): void {
-    this.subscription1.unsubscribe();
+    if (this.subscription) {
+      this.subscription.unsubscribe();
+    }
   }
 }
