@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   apiKey: 'k_49vzu2w1',
-  apiUrl:"https://imdb-api.com/en/API"
+  apiUrl: 'https://imdb-api.com/en/API',
 };
 
 /*
