@@ -13,6 +13,8 @@ import { CardComponent } from './components/card/card.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { ViewCardDetailsComponent } from './components/view-card-details/view-card-details.component';
 import { SearchInputComponent } from './components/search-input/search-input.component';
+import { NgHttpLoaderModule } from 'ng-http-loader';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,6 +29,7 @@ import { SearchInputComponent } from './components/search-input/search-input.com
     HttpClientModule,
     Ng2SearchPipeModule,
     FormsModule,
+    NgHttpLoaderModule.forRoot(),
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,
       // Register the ServiceWorker as soon as the app is stable
