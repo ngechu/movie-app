@@ -35,12 +35,16 @@ export class SearchInputComponent implements OnInit, OnDestroy {
         // switch to new search observable each time the term changes
         switchMap((term: string) => this.cardApiService.searchMovie(term))
       )
-      .subscribe((response: any) => {
-        this.movies = response.results;
-      });
+      .subscribe(
+        (response: any) => {
+          this.movies = response.results;
+        },
+        (err: any) => {
+          console.log(err);
+        }
+      );
   }
   viewbyID(id: string) {
-    console.log('id from other side', id);
     this.router.navigate([`view/${id}`]);
   }
   ngOnDestroy(): void {
