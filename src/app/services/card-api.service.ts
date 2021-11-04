@@ -1,38 +1,60 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import {environment} from '../../environments/environment'
+import { environment } from '../../environments/environment';
+import {
+  Top250Movie,
+  ComingSoon,
+  PopularMovie,
+  PopularTvShow,
+  InTheatersMovie,
+  Movie,
+} from '../interfaces/interface';
+import { Observable } from 'rxjs';
 
-
-const baseUrl = environment.apiUrl
+const baseUrl = environment.apiUrl;
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CardApiService {
-
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   //Get top 250 movies
-  getTop250Movies(){
-   return this.http.get(`${baseUrl}/Top250Movies/${environment.apiKey}`)
+  getTop250Movies(): Observable<Top250Movie[]> {
+    return this.http.get<Top250Movie[]>(
+      `${baseUrl}/Top250Movies/${environment.apiKey}`
+    );
   }
+
   //Get coming soon
-  getComingSoonMovies(){
-    return this.http.get(`${baseUrl}/ComingSoon/${environment.apiKey}`)
+  getComingSoonMovies(): Observable<ComingSoon[]> {
+    return this.http.get<ComingSoon[]>(
+      `${baseUrl}/ComingSoon/${environment.apiKey}`
+    );
   }
   //Get most popular movies
-  getMostPopularMovies(){
-    return this.http.get(`${baseUrl}/MostPopularMovies/${environment.apiKey}`)
-
+  getMostPopularMovies(): Observable<PopularMovie[]> {
+    return this.http.get<PopularMovie[]>(
+      `${baseUrl}/MostPopularMovies/${environment.apiKey}`
+    );
   }
   //Get most popular tv shows
-  getMostPopularTVs(){
-      return this.http.get(`${baseUrl}/MostPopularTvs/${environment.apiKey}`)
+  getMostPopularTVs(): Observable<PopularTvShow[]> {
+    return this.http.get<PopularTvShow[]>(
+      `${baseUrl}/MostPopularTvs/${environment.apiKey}`
+    );
   }
 
   //Get In Theaters movies
-  getInTheaterMovies(){
-    return this.http.get(`${baseUrl}/InTheaters/${environment.apiKey}`)
+  getInTheaterMovies(): Observable<InTheatersMovie[]> {
+    return this.http.get<InTheatersMovie[]>(
+      `${baseUrl}/InTheaters/${environment.apiKey}`
+    );
   }
 
-
+  //Search movie
+  searchMovie(value: string): Observable<any> {
+    return this.http.get<any>(
+      `${baseUrl}/SearchMovie/${environment.apiKey}/${value}`
+    );
+  }
 }
