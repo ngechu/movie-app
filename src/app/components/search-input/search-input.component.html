@@ -1,0 +1,61 @@
+<div>
+  <label class="hidden" for="search-form">Search One</label>
+  <input
+    class="
+      bg-grey-lightest
+      border-2
+      focus:border-orange
+      p-2
+      rounded-lg
+      shadow-inner
+      w-full
+      mb-4
+      mx-4
+      w-full
+      md:mb-0 md:w-1/4
+      searchInput
+    "
+    value=""
+    #searchBox
+    placeholder="Search"
+    type="text"
+    id="search-box"
+    (input)="search(searchBox.value)"
+  />
+  <div class="p-4">
+    <p class="text-xl py-4">Searched Movies</p>
+    <div
+      id="scrollContainer"
+      class="
+        flex flex-no-wrap
+        overflow-x-scroll
+        scrolling-touch
+        items-start
+        mb-8
+      "
+    >
+      <div
+        class="flex-none w-2/3 md:w-1/3 mr-8 md:pb-4 rounded-lg"
+        *ngFor="let details of movies"
+      >
+        <a class="space-y-4 cursor-pointer" (click)="viewbyID(details.id)">
+          <div class="aspect-w-16 aspect-h-9">
+            <img
+              class="object-cover shadow-md hover:shadow-xl rounded-lg"
+              src="{{ details.image }}"
+              alt=""
+            />
+          </div>
+          <div class="px-4 py-2">
+            <div class="text-md leading-6 font-medium space-y-1">
+              <h3 class="font-bold text-gray-800 text-xl mb-2">
+                {{ details.title }}
+              </h3>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+<ng-http-loader></ng-http-loader>
